@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* ── Class-based dark mode for Tailwind v4 ─────────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Design Tokens ──────────────────────────────────────────────────── */
+:root {
+  /* Dark (default) */
+  --bg-page:    #030712;
+  --bg-card:    #111827;
+  --bg-hover:   #1f2937;
+  --border:     #1f2937;
+  --txt-1:      #ffffff;
+  --txt-2:      #9ca3af;
+  --txt-3:      #6b7280;
+  --accent:     #7c3aed;
+}
+
+.light {
+  --bg-page:    #f1f5f9;
+  --bg-card:    #ffffff;
+  --bg-hover:   #f8fafc;
+  --border:     #e2e8f0;
+  --txt-1:      #0f172a;
+  --txt-2:      #475569;
+  --txt-3:      #94a3b8;
+  --accent:     #7c3aed;
+}
+
+/* ── Theme-aware utilities ──────────────────────────────────────────── */
+.cf-page      { background: var(--bg-page); color: var(--txt-1); }
+.cf-card      { background: var(--bg-card); border-color: var(--border); color: var(--txt-1); }
+.cf-border    { border-color: var(--border); }
+.cf-txt-2     { color: var(--txt-2); }
+.cf-txt-3     { color: var(--txt-3); }
+.cf-hover:hover { background: var(--bg-hover); }
+
+/* ── Base ───────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-page);
+  color: var(--txt-1);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+
+/* ── Selection ──────────────────────────────────────────────────────── */
+::selection { background: rgba(124, 58, 237, 0.3); color: white; }
+
+/* ── Transition helpers ─────────────────────────────────────────────── */
+.theme-transition {
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* ── Pulse animation ────────────────────────────────────────────────── */
+@keyframes cf-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.cf-pulse { animation: cf-pulse 1.8s ease-in-out infinite; }
+
+/* ── Light-mode Recharts overrides ──────────────────────────────────── */
+.light .recharts-cartesian-grid line { stroke: #e2e8f0 !important; }
+.light .recharts-text { fill: #64748b !important; }
