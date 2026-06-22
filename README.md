@@ -19,6 +19,18 @@ Casual Funnel/
 
 ---
 
+## 📸 Screenshots
+
+| Dashboard | Sessions Viewer |
+|:---:|:---:|
+| ![Dashboard](assets/screenshots/screenshot3.png) | ![Sessions](assets/screenshots/screenshot2.png) |
+
+| Heatmap | Demo Site |
+|:---:|:---:|
+| ![Heatmap](assets/screenshots/screenshot1.png) | ![Demo Site](assets/screenshots/screenshot5.png) |
+
+---
+
 ## ✨ Features
 
 | Feature | Description |
